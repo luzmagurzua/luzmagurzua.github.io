@@ -3,143 +3,159 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Acordeón de 3 columnas</title>
+    <title>RS Conosur - REG-Evolution</title>
     <style>
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Cambiando a una fuente más moderna y suave */
-            background-color: #f4f4f4;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
             margin: 0;
             padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+            overflow-x: hidden;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+            padding: 20px;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from {opacity: 0;}
+            to {opacity: 1;}
+        }
+        h1, h2, h3 {
+            color: #39196d;
+            animation: slideIn 1.5s ease-in-out;
+        }
+        @keyframes slideIn {
+            from {transform: translateX(-100%);}
+            to {transform: translateX(0);}
+        }
+        .section {
+            background: #fff;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            animation: scaleIn 1.5s ease-in-out;
+        }
+        @keyframes scaleIn {
+            from {transform: scale(0.9);}
+            to {transform: scale(1);}
         }
         .accordion {
-            display: flex;
-            justify-content: space-between;
-            margin: 20px;
-        }
-        .column {
-            width: 30%;
-            background-color: #ffffff;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sutil sombra para dar profundidad */
-        }
-        .accordion-header {
-            background-color: #00bcd4; /* Color calipso */
+            background-color: #02e011;
             color: white;
             cursor: pointer;
-            padding: 18px;
-            font-size: 18px;
-            text-align: center;
-            border-radius: 5px 5px 0 0;
-        }
-        .accordion-content {
-            display: none;
-            padding: 20px;
-            background-color: white;
-            text-align: justify; /* Asegurando que el texto esté justificado */
-            font-size: 16px; /* Ajustando el tamaño del texto */
-            line-height: 1.6; /* Mejorando la legibilidad */
-        }
-        .active .accordion-content {
-            display: block;
-        }
-        .inner-accordion {
-            background-color: #0072c6; /* Manteniendo un tono azul para los títulos internos */
-            color: white;
-            cursor: pointer;
-            padding: 18px;
+            padding: 15px;
             width: 100%;
             border: none;
             text-align: left;
             outline: none;
             font-size: 18px;
-            font-weight: bold;
+            transition: all 0.4s ease;
             border-radius: 5px;
-            transition: background-color 0.3s ease, transform 0.3s ease;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            margin-bottom: 5px;
+            position: relative;
+            animation: dropIn 1.5s ease-in-out;
         }
-        .inner-accordion:hover {
-            background-color: #005bb5;
-            transform: scale(1.02);
+        @keyframes dropIn {
+            from {transform: translateY(-100%);}
+            to {transform: translateY(0);}
+        }
+        .accordion:before {
+            content: '+';
+            font-size: 24px;
+            position: absolute;
+            right: 20px;
+            transition: transform 0.4s ease;
+        }
+        .accordion.active:before {
+            content: '-';
+            transform: rotate(180deg);
+        }
+        .accordion.active, .accordion:hover {
+            background-color: #0dc5a9;
         }
         .panel {
-            padding: 15px 18px;
-            background-color: #f9f9f9;
-            display: none;
+            padding: 0 18px;
+            background-color: white;
+            max-height: 0;
             overflow: hidden;
-            border-radius: 0 0 5px 5px;
-            margin-top: -5px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            transition: max-height 0.4s ease-out, padding 0.4s ease-out;
+            border-radius: 5px;
+            margin-top: 5px;
         }
         .panel p {
-            margin: 10px 0;
+            padding: 10px 0;
+            opacity: 0;
+            transition: opacity 0.4s ease-in;
         }
-        .panel a {
-            color: #0072c6;
-            text-decoration: none;
-            font-weight: bold;
-        }
-        .panel a:hover {
-            text-decoration: underline;
-        }
-        .buddies {
-            font-style: italic;
-            color: #555;
+        .panel.open p {
+            opacity: 1;
         }
     </style>
 </head>
 <body>
+    <div class="container">
+        <h1>What is REG-Evolution?</h1>
 
-<h2 style="text-align: center; color: #00bcd4;">Acordeón de 3 columnas</h2> <!-- Título centrado con color calipso -->
-
-<div class="accordion">
-    <!-- Categoría 1 -->
-    <div class="column">
-        <div class="accordion-header" onclick="toggleAccordion(this)">
-            Categoría 1
+        <div class="section">
+            <h2>Introduction</h2>
+            <p>RS Conosur started a new journey, giving shape to what we call the <strong>REG-Evolution</strong>. We drove all our commitment to be our best version (<em>Leadership: Play to win</em>). This new era aimed our regulatory evolution and why not through internal revolution?!</p>
         </div>
-        <div class="accordion-content">
-            <!-- Contenido de la Categoría 1 -->
-            <!-- Biotech Dossier Manager (BDM) -->
-            <button class="inner-accordion">Biotech Dossier Manager (BDM)</button>
+
+        <div class="section">
+            <h2>The Four Pillars of Our Change</h2>
+
+            <button class="accordion">Customer Obsession</button>
             <div class="panel">
-                <p>It keeps track of regulatory actions for traits regulatory approval.</p>
-                <a href="https://dossier.velocity.ag/index.cgi#">Click here to access</a>
-                <p class="buddies">Buddies: <a href="mailto:franco.puccio@bayer.com">Franco Puccio</a>, <a href="mailto:natalia.modena@bayer.com">Natalia Modena</a></p>
+                <p>We focused on being closer to our customers, understanding their needs, and exceeding their expectations.</p>
             </div>
-            <!-- Otros elementos como antes, simplemente repetir el patrón -->
+
+            <button class="accordion">Digital Transformations</button>
+            <div class="panel">
+                <p>We implemented digital technologies that optimize our processes and enhance the quality of our deliverables.</p>
+            </div>
+
+            <button class="accordion">Lean and Fast</button>
+            <div class="panel">
+                <p>We strive to be more agile, reducing waste and improving efficiency across all our operations.</p>
+            </div>
+
+            <button class="accordion">Opening Roads Together</button>
+            <div class="panel">
+                <p>Our team is more united than ever, collaborating and connecting to open new paths together.</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Our Transformation</h2>
+            <p>Our transformation was deep, conscious, and visible to our partners in the company.</p>
+            <p>All teams were fully engaged in driving the change, investing their time in one of the groups. We have already seen a clear impact, being closer and even part of our business, we have been able to define new internal partnerships (<em>Integrity: Collaborate and Connect</em>) and are more vocal in industry associations to continue to deliver new farming solutions.</p>
+            <p>We have been able to improve several regulatory processes, gain efficiencies and develop new tools that promote the quality of our deliverables as long as they capture the regulatory criteria that have evolved over the last year. We have new team branding and are actively engaging with new internal groups and stakeholders to communicate our value.</p>
+            <p>We are definitely winning on people and culture! More to come. Reg Sciences Conosur has in its DNA the passion for flexibility through innovation and experimentation.</p>
         </div>
     </div>
-    <!-- Repetir para Categoría 2 y Categoría 3 -->
-</div>
 
-<script>
-    function toggleAccordion(header) {
-        const content = header.nextElementSibling;
-        const column = header.parentElement;
-        column.classList.toggle("active");
-        if (content.style.display === "block") {
-            content.style.display = "none";
-        } else {
-            content.style.display = "block";
+    <script>
+        var acc = document.getElementsByClassName("accordion");
+        for (var i = 0; i < acc.length; i++) {
+            acc[i].addEventListener("click", function() {
+                this.classList.toggle("active");
+                var panel = this.nextElementSibling;
+                panel.classList.toggle("open");
+                if (panel.style.maxHeight) {
+                    panel.style.maxHeight = null;
+                    panel.style.padding = "0 18px";
+                } else {
+                    panel.style.maxHeight = panel.scrollHeight + "px";
+                    panel.style.padding = "10px 18px";
+                }
+            });
         }
-    }
-    var acc = document.getElementsByClassName("inner-accordion");
-    var i;
-    for (i = 0; i < acc.length; i++) {
-        acc[i].addEventListener("click", function() {
-            this.classList.toggle("active");
-            var panel = this.nextElementSibling;
-            if (panel.style.display === "block") {
-                panel.style.display = "none";
-            } else {
-                panel.style.display = "block";
-            }
-        });
-    }
-</script>
-
+    </script>
 </body>
 </html>
