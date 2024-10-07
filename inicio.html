@@ -3,76 +3,307 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mi Página Web</title>
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <title>Acordeón de 3 columnas</title>
     <style>
-        /* Estilos adicionales personalizados */
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .accordion {
+            display: flex;
+            justify-content: space-between;
+            margin: 20px;
+        }
+        .column {
+            width: 30%;
+            background-color: #f1f1f1;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .accordion-header {
+            background-color: #39196d;
+            color: white;
+            cursor: pointer;
+            padding: 10px;
+            text-align: center;
+            border-radius: 5px;
+        }
+        .accordion-content {
+            display: none;
+            padding: 10px;
+            background-color: white;
+            border-top: 1px solid #ccc;
+        }
+        .active .accordion-content {
+            display: block;
+        }
+        /* Estilos para el contenido del archivo pegado */
+        .inner-accordion {
+            background-color: #0072c6;
+            color: white;
+            cursor: pointer;
+            padding: 18px;
+            width: 100%;
+            border: none;
+            text-align: left;
+            outline: none;
+            font-size: 18px;
+            font-weight: bold;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .inner-accordion:hover {
+            background-color: #005bb5;
+            transform: scale(1.02);
+        }
+        .panel {
+            padding: 15px 18px;
+            background-color: #f9f9f9;
+            display: none;
+            overflow: hidden;
+            border-radius: 0 0 5px 5px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            margin-top: -5px;
+        }
+        .panel p {
+            margin: 10px 0;
+        }
+        .panel a {
+            color: #0072c6;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .panel a:hover {
+            text-decoration: underline;
+        }
+        .buddies {
+            font-style: italic;
+            color: #555;
+        }
     </style>
 </head>
 <body>
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-        <a class="navbar-brand" href="#">Mi Sitio</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-                <li class="nav-item active">
-                    <a class="nav-link" href="#">Inicio</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">RS Digital Tools - Support</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Regulatory Dashboards</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">RS Conosur Processes</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Mate Digital RS Conosur</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">RS Conosur Scorecard</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Documents</a>
-                </li>
-                <!-- Agrega más enlaces según lo necesites -->
-            </ul>
-        </div>
-    </nav>
 
-    <!-- Banner Principal -->
-    <div class="jumbotron jumbotron-fluid" style="background-color: #002D72;">
-        <div class="container">
-            <h1 class="display-4 text-white">Management of Change</h1>
+<h2>Acordeón de 3 columnas</h2>
+
+<div class="accordion">
+    <div class="column">
+        <div class="accordion-header" onclick="toggleAccordion(this)">
+            Categoría 1
+        </div>
+        <div class="accordion-content">
+            <!-- Contenido de la Categoría 1 -->
+            <button class="inner-accordion">Biotech Dossier Manager (BDM)</button>
+            <div class="panel">
+                <p>It keeps track of regulatory actions for traits regulatory approval.</p>
+                <a href="https://dossier.velocity.ag/index.cgi#">Click here to access</a>
+                <p class="buddies">Buddies: 
+                    <a href="mailto:franco.puccio@bayer.com">Franco Puccio, </a>
+                    <a href="mailto:natalia.modena@bayer.com">Natalia Modena</a>
+                </p>
+            </div>
+
+            <button class="inner-accordion">Global Approval Database (GAD)</button>
+            <div class="panel">
+                <p>It collects commercial approvals information for Bayer's biotech events worldwide.</p>
+                <a href="https://d1uxz0snk353n8.cloudfront.net/">Click here to access</a>
+                <p class="buddies">Buddies: 
+                    <a href="mailto:franco.puccio@bayer.com">Franco Puccio, </a>
+                    <a href="mailto:natalia.modena@bayer.com">Natalia Modena</a>
+                </p>
+            </div>
+
+            <button class="inner-accordion">Product Information Guide (PIG)</button>
+            <div class="panel">
+                <p>It holds information on Bayer's biotech events.</p>
+                <a href="https://regsci.velocity.ag/GRIS/ProductInfoGuide/List">Click here to access</a>
+                <p class="buddies">Buddies: 
+                    <a href="mailto:mariaagustina.alejandre@bayer.com">María Agustina Alejandre, </a>
+                    <a href="mailto:facundo.vesprini@bayer.com">Facundo Vesprini</a>
+                </p>
+            </div>
+
+            <button class="inner-accordion">Permits Requests Manager (PRM)</button>
+            <div class="panel">
+                <p>It captures requirements and information for permits submissions for regulated field trials in Conosur.</p>
+                <a href="https://velocity-np.ag/permit-request-manager">Click here to access</a>
+                <p class="buddies">Buddies: 
+                    <a href="mailto:nerinapaola.francescutti@bayer.com">Nerina Paola Francescutti, </a>
+                    <a href="mailto:miguel.ibanez@bayer.com">Miguel Ibañez</a>
+                </p>
+            </div>
+
+            <button class="inner-accordion">RAFTAR</button>
+            <div class="panel">
+                <a href="https://domino.science-at-scale.io/modelproducts/5efe15edcff47e0008c17b65">Click here to access</a>
+                <p class="buddies">Buddies: 
+                    <a href="mailto:franco.puccio@bayer.com">Franco Puccio, </a>
+                    <a href="mailto:natalia.modena@bayer.com">Natalia Modena</a>
+                </p>
+            </div>
+
+            <button class="inner-accordion">RRST</button>
+            <div class="panel">
+                <p>Regulatory Requests Tracking System is an internal workflow process for submission of detection methods and/or reference materials to regulatory agencies.</p>
+                <a href="https://apps.powerapps.com/play/e/default-fcb2b37b-5da0-466b-9b83-0014b67a7c78/a/d48a2b1d-8a51-40da-bb7a-1a7589e99e95?tenantId=fcb2b37b-5da0-466b-9b83-0014b67a7c78">Click here to access</a>
+                <p class="buddies">Buddies: 
+                    <a href="mailto:franco.puccio@bayer.com">Franco Puccio, </a>
+                    <a href="mailto:natalia.modena@bayer.com">Natalia Modena</a>
+                </p>
+            </div>
         </div>
     </div>
 
-    <!-- Sección de Imágenes y Contenido -->
-    <div class="container">
-        <div class="row">
-            <div class="col-md-6">
-                <img src="url-de-la-imagen1.jpg" class="img-fluid" alt="Imagen 1">
-            </div>
-            <div class="col-md-6">
-                <h3>MOC Public</h3>
-            </div>
+    <div class="column">
+        <div class="accordion-header" onclick="toggleAccordion(this)">
+            Categoría 2
         </div>
-        <div class="row">
-            <div class="col-md-6">
-                <img src="url-de-la-imagen2.jpg" class="img-fluid" alt="Imagen 2">
+        <div class="accordion-content">
+            <!-- Contenido pegado para la Categoría 2 -->
+            <button class="inner-accordion">Document Archiving and Retrieval Tool (DART)</button>
+            <div class="panel">
+                <p>It organizes and retrieves regulatory relevant documents.</p>
+                <a href="https://bayergroup.sharepoint.com/sites/032853/SitePages/Home.aspx">Trainings</a>
+                <br />
+                <a href="https://by-lea.de.bayer.cnb/Citrix/StoreSSOWeb/">Click here to access</a>
+                <p class="buddies">Buddies: 
+                    <a href="mailto:roberto.fontaina@bayer.com">Roberto R Fontaina Ballantyne, </a>
+                    <a href="mailto:paulina.marchant@bayer.com">Paulina Marchant</a>
+                </p>
             </div>
-            <div class="col-md-6">
-                <h3>GRIP</h3>
+
+            <button class="inner-accordion">Dossier Compilation Tool (DCT.DPT.DET)</button>
+            <div class="panel">
+                <p>It allows to create and maintain all kinds of dossiers and data collections including submission tracking.</p>
+                <a href="https://bayergroup.sharepoint.com/sites/032853/SitePages/Home.aspx">Trainings</a>
+                <br />
+                <a href="https://by-lea.de.bayer.cnb/Citrix/StoreSSOWeb/">Click here to access</a>
+                <p class="buddies">Buddies: 
+                    <a href="mailto:elena.ayala@bayer.com">Dominga Elena Ayala Martinez, </a>
+                    <a href="mailto:catalina.marinero@bayer.com">Catalina Marinero</a>
+                </p>
+            </div>
+
+            <button class="inner-accordion">Document Collection Tool for DART (DOLLAR)</button>
+            <div class="panel">
+                <p>It allows a standardized upload of regulatory document.</p>
+                <a href="https://bayergroup.sharepoint.com/sites/032853/SitePages/Home.aspx">Trainings</a>
+                <br />
+                <a href="https://dollar-p.intranet.cnb/Runtime/Runtime/Form/YEN.DA.SMF.Home/">Click here to access</a>
+                <p class="buddies">Digital Buddies: 
+                    <a href="mailto:norma.lilianafloresbonifaz@bayer.com">Liliana Flores, </a>
+                    <a href="mailto:mariajose.bustamanteparada@bayer.com">Maria Jose Bustamante Parada</a>
+                </p>
+            </div>
+
+            <button class="inner-accordion">Regulatory Product Registration Information Entry (REGPRIME)</button>
+            <div class="panel">
+                <p>It is the single point of truth for regulatory relevant key data, providing transparency on national, regional and global level cross-departmental, establishing compliance and sustaining data consistency.</p>
+                <a href="https://bayergroup.sharepoint.com/sites/032853/SitePages/Home.aspx">Trainings</a>
+                <br />
+                <a href="https://regprime.intranet.cnb/regprime/">Click here to access</a>
+                <p class="buddies">Digital Buddies: 
+                    <a href="mailto:salome.harari@bayer.com">Salome Harari, </a>
+                    <a href="mailto:michelle.pomareda@bayer.com">Michelle Pomareda Sotomayor</a>
+                </p>
+            </div>
+
+            <button class="inner-accordion">ROSAL (Velocity)</button>
+            <div class="panel">
+                <a href="https://bayergroup.sharepoint.com/:f:/r/sites/VelocityForecastingOrderingGlobalLaunch/Shared%20Documents/General?csf=1&web=1&e=dFMo4j">Trainings</a>
+                <br />
+                <a href="https://velocity.ag/rosal-chemical-ordering/">Click here to access</a>
+                <p class="buddies">Digital Buddies: 
+                    <a href="mailto:roberto.fontaina@bayer.com">Roberto R Fontaina Ballantyne, </a>
+                    <a href="mailto:catalina.marinero@bayer.com">Catalina Marinero</a>
+                </p>
+            </div>
+
+            <button class="inner-accordion">Change Management Approach (CHAMP)</button>
+            <div class="panel">
+                <p>It is where changes on products as well as launches of new products can be aligned between Product Supply and Regulatory Science.</p>
+                <a href="https://bayergroup.sharepoint.com/sites/002096/SitePages/RoleLearningPath.aspx?role=Country%20Regulatory%20Manager%20%28CRM%29%20%5bCP%5d&OR=Teams-HL&CT=1671636018936">Trainings</a>
+                <br />
+                <a href="https://by-dcccp.bayer-ag.com:50001/irj/portal">Click here to access</a>
+                <p class="buddies">Digital Buddies: 
+                    <a href="mailto:salome.harari@bayer.com">Salome Harari, </a>
+                    <a href="mailto:michelle.pomareda@bayer.com">Michelle Pomareda Sotomayor</a>
+                </p>
             </div>
         </div>
     </div>
 
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <div class="column">
+        <div class="accordion-header" onclick="toggleAccordion(this)">
+            Categoría 3
+        </div>
+        <div class="accordion-content">
+            <!-- Contenido pegado para la Categoría 3 -->
+            <button class="inner-accordion">International IMport and EXport (IMEX)</button>
+            <div class="panel">
+                <p>Compliance reference database.</p>
+                <a href="https://w3.fiori.monsanto.com/sap/bc/ui5_ui5/sap/ytradereq_rep/index.html?sap-client=430">Click here to access</a>
+                <p class="buddies">Buddies: 
+                    <a href="mailto:veronicanoemi.lopez@bayer.com">Verónica Noemi López, </a>
+                    <a href="mailto:yaninamariela.moyano@bayer.com">Yanina Mariela Moyano</a>
+                </p>
+            </div>
+
+            <button class="inner-accordion">Variety Registration Global (VAREG)</button>
+            <div class="panel">
+                <p>It's a tool for seed VR, PVP tracking and database.</p>
+                <p class="buddies">Buddies: 
+                    <a href="mailto:veronicanoemi.lopez@bayer.com">Verónica Noemi López, </a>
+                    <a href="mailto:yaninamariela.moyano@bayer.com">Yanina Mariela Moyano</a>
+                </p>
+            </div>
+
+            <button class="inner-accordion">Variety Submit</button>
+            <div class="panel">
+                <p>Commercial Corn Seed Registration Dossier compilation tool.</p>
+                <p class="buddies">Buddies: 
+                    <a href="mailto:veronicanoemi.lopez@bayer.com">Verónica Noemi López, </a>
+                    <a href="mailto:yaninamariela.moyano@bayer.com">Yanina Mariela Moyano</a>
+                </p>
+            </div>
+
+            <button class="inner-accordion">Anexo II</button>
+            <div class="panel">
+                <p>Argentina INASE, varietal descriptor (Annex II) compilation tool.</p>
+                <p class="buddies">Buddies: 
+                    <a href="mailto:veronicanoemi.lopez@bayer.com">Verónica Noemi López, </a>
+                    <a href="mailto:yaninamariela.moyano@bayer.com">Yanina Mariela Moyano</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function toggleAccordion(header) {
+        const content = header.nextElementSibling;
+        const column = header.parentElement;
+        column.classList.toggle("active");
+    }
+
+    // Lógica para el acordeón interno
+    var acc = document.getElementsByClassName("inner-accordion");
+    var i;
+
+    for (i = 0; i < acc.length; i++) {
+      acc[i].addEventListener("click", function() {
+        this.classList.toggle("active");
+        var panel = this.nextElementSibling;
+        if (panel.style.display === "block") {
+          panel.style.display = "none";
+        } else {
+          panel.style.display = "block";
+        }
+      });
+    }
+</script>
+
 </body>
 </html>
